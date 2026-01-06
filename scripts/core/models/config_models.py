@@ -30,7 +30,6 @@ class ValidatorConfig(BaseConfig):
     frontend_api_key: str
     validator_port: str
     set_metagraph_weights: bool
-    validator_port: str
     gpu_ids: str
     postgres_user: str | None = None
     postgres_password: str | None = None

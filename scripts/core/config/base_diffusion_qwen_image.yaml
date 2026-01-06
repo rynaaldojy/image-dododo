@@ -1,9 +1,9 @@
 job: extension
 config:
-  name: last
+  name: qwen_lora_v1
   process:
   - type: diffusion_trainer
-    training_folder: /app/checkpoints
+    training_folder: /home/aldobataks/Downloads/dododo/image-dododo/output
     device: cuda
     network:
       type: lora
@@ -15,7 +15,7 @@ config:
       max_step_saves_to_keep: 4
       save_format: diffusers
     datasets:
-    - folder_path: /dataset/images
+    - folder_path: /home/aldobataks/Downloads/dododo/image-dododo/dataset/10_person
       caption_ext: txt
       cache_latents_to_disk: true
       resolution: [512, 768, 1024]

@@ -3,14 +3,16 @@ model_type: AutoModelForCausalLM
 tokenizer_type: AutoTokenizer
 
 load_in_8bit: false
-load_in_4bit: false
+load_in_4bit: true
 strict: false
 
 chat_template: llama3
 datasets:
+  - path: /home/aldobataks/Downloads/dododo/image-dododo/dataset/text/data.jsonl
+    type: json
 dataset_prepared_path:
 val_set_size: 0.05
-output_dir: miner_id_24
+output_dir: /home/aldobataks/Downloads/dododo/image-dododo/output_llm
 
 rl: grpo
 
@@ -34,7 +36,7 @@ lora_target_linear: true
 lora_fan_in_fan_out:
 
 gradient_accumulation_steps: 4
-micro_batch_size: 4
+micro_batch_size: 1
 num_epochs: 1
 optimizer: adamw_bnb_8bit
 lr_scheduler: cosine
@@ -46,7 +48,7 @@ bf16: auto
 fp16:
 tf32: false
 
-gradient_checkpointing: false
+gradient_checkpointing: true
 early_stopping_patience:
 resume_from_checkpoint:
 local_rank:
@@ -66,7 +68,7 @@ warmup_steps: 10
 evals_per_epoch: 4
 eval_table_size:
 eval_max_new_tokens: 128
-max_steps: 10
+max_steps: 500
 debug:
 deepspeed:
 weight_decay: 0.0
